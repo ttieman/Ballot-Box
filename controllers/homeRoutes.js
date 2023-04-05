@@ -1,5 +1,5 @@
-// const router = require('express').Router();
-// const { Project, User } = require('../models');
+const router = require('express').Router();
+const { Project, User } = require('../models');
 // const withAuth = require('../utils/auth');
 
 // router.get('/', async (req, res) => {
@@ -69,14 +69,15 @@
 //   }
 // });
 
-// router.get('/login', (req, res) => {
-//   // If the user is already logged in, redirect the request to another route
-//   if (req.session.logged_in) {
-//     res.redirect('/profile');
-//     return;
-//   }
+router.get('/login', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    console.log('logged in already');
+    res.redirect('/');
+    return;
+  }
+  console.log("not logged in");
+  res.render('login');
+});
 
-//   res.render('login');
-// });
-
-// module.exports = router;
+module.exports = router;
