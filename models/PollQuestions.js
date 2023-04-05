@@ -14,7 +14,6 @@ PollQuestions.init(
     poll_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: "",
     },
     answerText: {
       type: DataTypes.STRING,
