@@ -18,5 +18,45 @@
   {
     "pollquestion_id": "3",
     "user_id": "5"
+  },
+  {
+    "pollquestion_id": "5",
+    "user_id": "1"
+  },
+  {
+    "pollquestion_id": "6",
+    "user_id": "2"
+  },
+  {
+    "pollquestion_id": "7",
+    "user_id": "3"
+  },
+  {
+    "pollquestion_id": "8",
+    "user_id": "4"
+  },
+  {
+    "pollquestion_id": "8",
+    "user_id": "5"
+  },
+  {
+    "pollquestion_id": "9",
+    "user_id": "1"
+  },
+  {
+    "pollquestion_id": "9",
+    "user_id": "2"
+  },
+  {
+    "pollquestion_id": "9",
+    "user_id": "3"
+  },
+  {
+    "pollquestion_id": "10",
+    "user_id": "4"
+  },
+  {
+    "pollquestion_id": "10",
+    "user_id": "5"
   }
 ]

@@ -14,5 +14,37 @@
   {
     "poll_id": "1",
     "answerText": "None"
+  },
+  {
+    "poll_id": "2",
+    "answerText": "Thursday"
+  },
+  {
+    "poll_id": "2",
+    "answerText": "Friday"
+  },
+  {
+    "poll_id": "2",
+    "answerText": "Saturday"
+  },
+  {
+    "poll_id": "2",
+    "answerText": "Sunday"
+  },
+  {
+    "poll_id": "3",
+    "answerText": "Batman"
+  },
+  {
+    "poll_id": "3",
+    "answerText": "Superman"
+  },
+  {
+    "poll_id": "3",
+    "answerText": "Wonderwoman"
+  },
+  {
+    "poll_id": "3",
+    "answerText": "Flash"
   }
 ]

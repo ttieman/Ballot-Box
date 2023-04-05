@@ -2,5 +2,13 @@
   {
     "question": "What is your favorite pizza topping?",
     "owner_id": 1
+  },
+  {
+    "question": "What is your favorite day of the week?",
+    "owner_id": 1
+  },
+  {
+    "question": "Who is your favorite super hero?",
+    "owner_id": 2
   }
 ]
