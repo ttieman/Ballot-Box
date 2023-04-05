@@ -70,29 +70,7 @@ const { Project, User } = require('../models');
 // });
 
 
-//retrieve login page
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    console.log('logged in already');
-    res.redirect('/');
-    return;
-  }
-  console.log("not logged in");
-  res.render('login');
-});
 
-//retrieve signup page
-router.get('/signup', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    console.log('account logged in already');
-    res.redirect('/');
-    return;
-  }
-  console.log("make an account");
-  res.render('signup');
-});
 
 module.exports = router;
 
