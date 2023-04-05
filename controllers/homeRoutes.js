@@ -1,6 +1,7 @@
-const router = require('express').Router();
-const { Project, User } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { Project, User } = require("../models");
+const withAuth = require("../utils/auth");
+
 
 router.get('/', async (req, res) => {
     try {
@@ -25,7 +26,9 @@ router.get('/', async (req, res) => {
 //       ],
 //     });
 
+
 //     const project = projectData.get({ plain: true });
+
 
 //     res.render('project', {
 //       ...project,
@@ -44,6 +47,7 @@ router.get('/', async (req, res) => {
 //       attributes: { exclude: ['password'] },
 //       include: [{ model: Project }],
 //     });
+
 
 //     const user = userData.get({ plain: true });
 
