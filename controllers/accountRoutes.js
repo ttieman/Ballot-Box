@@ -2,8 +2,11 @@ const router = require('express').Router();
 
 const { User } = require('../models');
 
+
+//retrieve login page
 router.get('/login', async (req, res) => {
     http://localhost:3001/account/login
+
     try {
 
         // If the user is already logged in, redirect the request to another route
@@ -22,7 +25,8 @@ router.get('/login', async (req, res) => {
 });
 
 //retrieve signup page
-router.get('/signup', async (req, res) => {  // http://localhost:3001/account/signup
+router.get('/signup', async (req, res) => {
+    // http://localhost:3001/account/signup
     try {
         // If the user is already logged in, redirect the request to another route
         if (req.session.logged_in) {
