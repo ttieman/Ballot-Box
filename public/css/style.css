@@ -27,7 +27,8 @@ header, .project:not(:last-child) {
 
 
 h1 {
-  font-size: 4.5em;
+  font-family: 'Nunito Sans', sans-serif !important;
+  font-size: 5em;
   font-style: bolder;
   /* margin: 0.67em 0; */
   color: rgb(35, 144, 13)!important;
@@ -70,4 +71,37 @@ body {
   height: 100px;
   margin: 0 auto;
   display: block;
+  background-color: transparent;
 }
+
+.btn {
+  background-color: rgb(35, 144, 13)!important;
+  color: #fff!important;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.5em;
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: #0a5133;
+}
+
+.create-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.feed-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+}
+
