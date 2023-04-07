@@ -7,17 +7,17 @@
 </header>
 
 <main class='container container-fluid mt-5'>
-  <div id='viewPostContainer'>
-    <form class='form post-form'>
+  <div id='viewPollContainer'>
+    <form class='form poll-form'>
       <div class='input-group mb-3'>
-        <span class='input-group-text'>Title</span>
+        <span class='input-group-text'>The Ballot-Box</span>
         <input
-          id='title-post'
+          id='title-poll'
           type='text'
           class='form-control'
           placeholder='Insert title here'
           aria-label='Title'
-          value='{{blogpost.title}}'
+          value='{{poll.title}}'
         />
       </div>
       <div class='input-group'>
@@ -27,7 +27,7 @@
             id='description-post'
             class='form-control'
             aria-label='With textarea'
-          >{{blogpost.description}}</textarea>
+          >{{poll.description}}</textarea>
         </div>
       </div>
       <div class='row justify-content-center align-items-center'>
@@ -49,4 +49,4 @@
     </form>
   </div>
 </main>
-<script src='/js/edit-post.js'></script>
+<script src='/js/edit-poll.js'></script>
