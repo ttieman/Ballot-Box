@@ -1,20 +1,19 @@
 * {
   font-family: 'Nunito Sans', sans-serif !important;
-  margin: 0px;
-  padding: 0px;
   box-sizing: border-box;
 }
 
-header, .project:not(:last-child) {
+header,
+.project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
-.no-button {
+-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  color: rgb(35, 144, 13)!important;
+  color: rgb(35, 144, 13) !important;
   text-decoration: none;
   font-size: 100%;
   margin-left: 10px;
@@ -27,40 +26,118 @@ header, .project:not(:last-child) {
 
 
 h1 {
-  font-size: 4.5em;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center;
+  font-family: 'Nunito Sans', sans-serif !important;
+  font-size: 5em;
   font-style: bolder;
+  margin: 0px;
   /* margin: 0.67em 0; */
-  color: rgb(35, 144, 13)!important;
+  color: white !important;
 }
 
 h2 {
   font-size: 1.5em;
-  /* margin: 0.67em 0; */
-  color: rgb(35, 144, 13)!important;
+  margin: 1em;
+  color: rgb(35, 144, 13) !important;
 }
 
-a, nav {
-  color: rgb(35, 144, 13)!important;
-  text-decoration: none;
+h5 {
+  font-size: 2em!important;
+  font-weight: bold;
+  color: rgb(35, 144, 13) !important;
+}
+
+a,
+nav {
+  color: rgb(35, 144, 13) !important;
+  text-decoration: none !important;
   letter-spacing: 5px;
 }
 
 nav {
   display: flex;
   font-size: 1.5em;
+  background-color: green;
   /* margin: 1em .5em; */
-  justify-content: flex-end!important;
+  justify-content: flex-end !important;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  padding: 0px 10px;
+  color: white !important;
 }
 
 a {
   margin-right: 10px;
+  color: white !important;
 }
 
 body {
-  background-color: rgb(238, 219, 195)!important;
+  background-color: rgb(238, 219, 195) !important;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   line-height: 0.5;
   color: #333;
   margin: 9px;
+}
+
+.logo {
+  display: flex;
+  width: 115px;
+  height: auto;
+  margin-top: 10px;
+  display: block;
+  background-color: transparent;
+}
+
+#logout {
+  display: flex-end;
+  padding-bottom: 0px;
+  color: rgb(35, 144, 13) !important;
+  justify-content: flex-end;
+}
+
+/* 
+#brand {
+  display: flex-start;
+  justify-content: flex-start!important;
+} */
+
+.btn {
+  background-color: rgb(35, 144, 13) !important;
+  color: #fff !important;
+  padding: 15px 20px!important;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.5em;
+  margin: 50px!important;
+}
+
+.btn:hover {
+  background-color: #0a5133;
+}
+
+.create-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin: 10px;
+}
+
+.feed-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
 }
