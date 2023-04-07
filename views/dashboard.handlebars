@@ -8,18 +8,18 @@
   </div>
 </header>
 <main class='container container-fluid mt-5'>
-  <div id='blogpostContainer'>
-    {{! render all blogposts from the database on the main page }}
-    {{#each blogposts}}
+  <div id='pollContainer'>
+    {{! render all polls from the database on the main page }}
+    {{#each polls}}
       <div class='card bg-dark m-3 rounded-3 text-white'>
         <div class='card-body'>
           <div class='row align-center'>
             <div class='h3 col-5 text-start'><a
                 class='text-white'
-                href='/dashboard/{{user_id}}/editpost/{{id}}'
+                href='/dashboard/{{user_id}}/editpoll/{{id}}'
               >{{title}}</a>
             </div>
-            <div class='col-7 text-end'>Polled on
+            <div class='col-7 text-end'>Polled on:
               {{format_date date_created}}</div>
           </div>
         </div>
@@ -27,12 +27,12 @@
     {{/each}}
   </div>
 
-  <div id='addPostContainer'>
-    <form class='form post-form'>
+  <div id='addPollContainer'>
+    <form class='form poll-form'>
       <div class='input-group mb-3'>
         <span class='input-group-text'>Title</span>
         <input
-          id='title-post'
+          id='title-poll'
           type='text'
           class='form-control'
           placeholder='Insert title here'
@@ -43,7 +43,7 @@
         <div class='input-group'>
           <span class='input-group-text'>Description</span>
           <textarea
-            id='description-post'
+            id='description-poll'
             class='form-control'
             aria-label='With textarea'
           ></textarea>
@@ -54,7 +54,7 @@
           <button
             class='btn btn-primary custom-btn'
             type='submit'
-            id='post-submit'
+            id='poll-submit'
           >Submit</button>
         </div>
       </div>
@@ -67,7 +67,7 @@
         <button
           class='btn btn-primary custom-btn w-100'
           type='button'
-          id='addpost'
+          id='addpoll'
         >+ Add Poll</button>
       </div>
     </div>

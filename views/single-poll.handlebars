@@ -12,25 +12,25 @@
   <div class='card bg-info-subtle m-3 rounded-4 border-dark border-4'>
     <header class='card-header bg-dark text-white'>
       <div class='row justify-content-between'>
-        <h2 class='h2 col-9 text-white text-start'>{{blogpost.title}}</h2>
+        <h2 class='h2 col-9 text-white text-start'>{{poll.title}}</h2>
         <div class='align-self-center col-3 text-end m-0'>Poll by
-          {{blogpost.user.username}}
+          {{poll.user.username}}
           on
-          {{blogpost.date_created}}</div>
+          {{poll.date_created}}</div>
       </div>
     </header>
     <div class='card-body'>
       <div class='row align-center mb-2'>
 
         <div class='col-md-12'>
-          <p class='fs-5'>{{blogpost.description}}</p>
+          <p class='fs-5'>{{poll.description}}</p>
         </div>
       </div>
     </div>
   </div>
 
   <div id='commentContainer'>
-    {{#each blogpost.comments}}
+    {{#each poll.comments}}
       <div class='card bg-info-subtle m-3 rounded-3'>
         <div class='card-body'>
           <div class='row align-center'>
@@ -80,7 +80,7 @@
   <div id='newCommentContainer'>
     <div class='card bg-info-subtle m-3 rounded-3'>
       <div class='card-body'>
-        <div id='viewPostContainer'>
+        <div id='viewPollContainer'>
           <form class='form addComment-form'>
             <div class='input-group'>
               <div class='input-group'>
@@ -118,4 +118,4 @@
 
 </main>
 
-<script src='/js/singlepost.js'></script>
+<script src='/js/single-poll.js'></script>
