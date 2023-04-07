@@ -1,4 +1,3 @@
-
 const Poll = require("./Poll");
 const User = require("./User");
 const PollVotes = require("./PollVotes");
@@ -6,14 +5,14 @@ const PollQuestions = require("./PollQuestions");
 
 User.belongsToMany(PollQuestions, {
   through: PollVotes,
-  unique: false,
+  unique: true,
   foreignKey: "user_id",
   otherKey: "pollquestion_id",
 });
 
 PollQuestions.belongsToMany(User, {
   through: PollVotes,
-  unique: false,
+  unique: true,
   foreignKey: "pollquestion_id",
   otherKey: "user_id",
 });
