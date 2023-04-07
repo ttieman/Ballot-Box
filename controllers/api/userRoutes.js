@@ -212,6 +212,7 @@ router.get("/debugari/pollQuestions", async (req, res) => {
       ],
     });
     res.status(200).json(allPoles);
+    res.render("homepage", logged_in, [charts])
   } catch (err) {
     res.status(500).json(err);
   }

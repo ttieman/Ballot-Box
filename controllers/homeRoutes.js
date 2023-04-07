@@ -1,18 +1,18 @@
 const router = require("express").Router();
-const { Project, User } = require("../models");
+const { Poll, User, PollQuestions } = require("../models");
 const withAuth = require("../utils/auth");
 
+router.get("/", async (req, res) => {
+  try {
+    const loggedIn = req.session.loggedIn;
+    const user_id = req.session.user_id;
 
-router.get('/', async (req, res) => {
-    try {
-        res.render('homepage', {
-            logged_in: req.session.logged_in,
-        });
-
-    }
-    catch (err) {
-        res.status(500).json(err);
-    }
+    res.render("mainHomepage", { loggedIn, user_id });
+    // send the JSON response with the data to be used in a fetch request
+    // res.status(200).json(polls);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // router.get('/project/:id', async (req, res) => {
@@ -26,9 +26,7 @@ router.get('/', async (req, res) => {
 //       ],
 //     });
 
-
 //     const project = projectData.get({ plain: true });
-
 
 //     res.render('project', {
 //       ...project,
@@ -48,7 +46,6 @@ router.get('/', async (req, res) => {
 //       include: [{ model: Project }],
 //     });
 
-
 //     const user = userData.get({ plain: true });
 
 //     res.render('profile', {
@@ -60,9 +57,4 @@ router.get('/', async (req, res) => {
 //   }
 // });
 
-
-
-
 module.exports = router;
-
-
