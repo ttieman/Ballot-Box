@@ -6,58 +6,58 @@ const { fn, col } = require('sequelize');
 
 
 router.get("/", async (req, res) => {
-  //http://localhost:3001/api/poll
-  try {
-    const allPollData = await Poll.findAll({
-      include: [
-        {
-          model: PollQuestions,
-          include: [
-            {
-              model: User,
-              attributes: {
-                exclude: ["password"],
-              },
-            },
-          ],
-        },
-      ],
-    });
+    //http://localhost:3001/api/poll
+    try {
+        const allPollData = await Poll.findAll({
+            include: [
+                {
+                    model: PollQuestions,
+                    include: [
+                        {
+                            model: User,
+                            attributes: {
+                                exclude: ["password"],
+                            },
+                        },
+                    ],
+                },
+            ],
+        });
 
-    if (!allPollData) {
-      res.status(404).json({ message: "no data found" });
+        if (!allPollData) {
+            res.status(404).json({ message: "no data found" });
+        }
+        const polls = allPollData.map((poll) => poll.get({ plain: true }));
+
+        res.status(200).json(polls);
+    } catch (err) {
+        res.status(400).json(err);
     }
-    const polls = allPollData.map((poll) => poll.get({ plain: true }));
-
-    res.status(200).json(polls);
-  } catch (err) {
-    res.status(400).json(err);
-  }
 });
 
 //check all possible answers to a poll
 router.get("/:id", async (req, res) => {
-  //http://localhost:3001/api/poll/:id
-  try {
-    const allPoles = await Poll.findByPk(req.params.id, {
-      include: [
-        {
-          model: PollQuestions,
-          include: [
-            {
-              model: User,
-              attributes: {
-                exclude: ["password"],
-              },
-            },
-          ],
-        },
-      ],
-    });
-    res.status(200).json(allPoles);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+    //http://localhost:3001/api/poll/:id
+    try {
+        const allPoles = await Poll.findByPk(req.params.id, {
+            include: [
+                {
+                    model: PollQuestions,
+                    include: [
+                        {
+                            model: User,
+                            attributes: {
+                                exclude: ["password"],
+                            },
+                        },
+                    ],
+                },
+            ],
+        });
+        res.status(200).json(allPoles);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 
@@ -242,6 +242,37 @@ router.get('/count/:id', async (req, res) => { //http://localhost:3001/api/poll/
         res.status(500).json({ message: 'An error occurred while retrieving the poll data' });
     }
 });
+
+//delete route to delete a poll by id only for the posts that belong to the logged in user
+router.delete("/delete/:id", async (req, res) => {
+    //http://localhost:3001/api/poll/delete/:id
+    try {
+        const pollId = parseInt(req.params.id, 10);
+        if (isNaN(pollId)) {
+            res.status(400).json({ message: 'Invalid poll id' });
+            return;
+        }
+
+        const pollData = await Poll.destroy({
+            where: {
+                id: pollId,
+                owner_id: 1, // Set owner_id manually for testing purposes
+            },
+        });
+
+        if (!pollData) {
+            res.status(404).json({ message: 'No poll found with that id!' });
+            return;
+        }
+
+        res.status(200).json(pollData);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'An error occurred while deleting the poll' });
+    }
+});
+
+
 
 
 
