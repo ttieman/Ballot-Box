@@ -35,4 +35,12 @@ PollQuestions.belongsTo(Poll, {
   foreignKey: "poll_id",
 });
 
+PollQuestions.hasMany(PollVotes, {
+  foreignKey: 'pollquestion_id',
+  as: 'votes'
+});
+PollVotes.belongsTo(PollQuestions, {
+  foreignKey: 'pollquestion_id'
+});
+
 module.exports = { Poll, User, PollVotes, PollQuestions };

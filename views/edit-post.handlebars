@@ -1,0 +1,52 @@
+<header class='constainer text-center'>
+  <div class='row bg-dark text-white'>
+    <h1
+      class='h1 --bs-body-color col-4 p-2 mx-5 mb-4 bg-info-subtle text-dark rounded-3 header'
+    >Your Dashboard</h1>
+  </div>
+</header>
+
+<main class='container container-fluid mt-5'>
+  <div id='viewPostContainer'>
+    <form class='form post-form'>
+      <div class='input-group mb-3'>
+        <span class='input-group-text'>Title</span>
+        <input
+          id='title-post'
+          type='text'
+          class='form-control'
+          placeholder='Insert title here'
+          aria-label='Title'
+          value='{{blogpost.title}}'
+        />
+      </div>
+      <div class='input-group'>
+        <div class='input-group'>
+          <span class='input-group-text'>Description</span>
+          <textarea
+            id='description-post'
+            class='form-control'
+            aria-label='With textarea'
+          >{{blogpost.description}}</textarea>
+        </div>
+      </div>
+      <div class='row justify-content-center align-items-center'>
+        <div class='form-group col-2 my-3 text-center'>
+          <button
+            class='btn btn-primary custom-btn'
+            type='submit'
+            id='post-update'
+          >Update</button>
+        </div>
+        <div class='form-group col-2 my-3 text-center'>
+          <button
+            class='btn btn-primary custom-btn'
+            type='button'
+            id='post-delete'
+          >Delete</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+<script src='/js/edit-post.js'></script>
