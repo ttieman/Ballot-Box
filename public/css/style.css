@@ -1,5 +1,5 @@
 * {
-  font-family: 'Nunito Sans', sans-serif !important;
+  font-family: "Nunito Sans", sans-serif !important;
   box-sizing: border-box;
 }
 
@@ -24,13 +24,12 @@ header,
   text-decoration: underline;
 }
 
-
 h1 {
   display: flex !important;
   flex-direction: row !important;
   justify-content: flex-start !important;
   align-items: center;
-  font-family: 'Nunito Sans', sans-serif !important;
+  font-family: "Nunito Sans", sans-serif !important;
   font-size: 5em;
   font-style: bolder;
   margin: 0px;
@@ -45,7 +44,7 @@ h2 {
 }
 
 h5 {
-  font-size: 2em!important;
+  font-size: 2em !important;
   font-weight: bold;
   color: rgb(35, 144, 13) !important;
 }
@@ -83,7 +82,7 @@ a {
 
 body {
   background-color: rgb(238, 219, 195) !important;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 18px;
   line-height: 0.5;
   color: #333;
@@ -115,12 +114,12 @@ body {
 .btn {
   background-color: rgb(35, 144, 13) !important;
   color: #fff !important;
-  padding: 15px 20px!important;
+  padding: 15px 20px !important;
   border: none;
   border-radius: 5px;
   text-decoration: none;
   font-size: 1.5em;
-  margin: 50px!important;
+  margin: 50px !important;
 }
 
 .btn:hover {
