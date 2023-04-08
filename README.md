@@ -1,4 +1,4 @@
-# ⭐ PROJECT TITLE GOES HERE ⭐  
+# ⭐ Ballot-Box ⭐  
 ![alt text](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Description ✏️
@@ -9,13 +9,14 @@
 ```The user can delete a poll, if they would like. ```  
 ## User Story 📖
 
-``` AS A fair individual user, I WANT to be able to poll users, SO THAT I can reach an agreed solution. ```
+``` AS A fair individual user, ```
+``` I WANT to be able to poll users, ``` 
+``` SO THAT I can reach an agreed solution. ```
 
 ## Table of Contents 📖
 - [Installation](#installation)
 - [Usage](#usage)
 - [Tests](#tests)
-- [Badges](#badges)
 - [Credits_&_Questions](#credits_&_questions)
 - [License](#license)
 - [Features](#features)
@@ -58,25 +59,10 @@ The MIT license is in the GitHub repository.  Click to link to view it:
 
 ## Features ✍
 
-- npm
-- CSS
-- MySQL
-- JawsDB
 - ESLint
 - Heroku
-- Bcrypt
-- Dotenv
-- Cookies
-- Nodemon
-- Node.js
 - Express
 - Sequelize
-- Bootstrap
-- Restful API
-- Google Fonts
-- Express-Session
-- GET & POST routes
-- Express-Handlebars
 - Protected API Keys
 - An MVC file structure
 - Polished UI that's responsive

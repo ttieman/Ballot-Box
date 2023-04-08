@@ -11,6 +11,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito+Sans&family=Poppins&display=swap" />
+  <!-- Exo 2 Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Nunito+Sans:wght@600;700&display=swap"
+    rel="stylesheet">
   <!-- CSS & JASS -->
   <!-- <link rel='stylesheet' href='/css/jass.css' /> -->
   <link rel="stylesheet" href="../public/css/style.css" />
@@ -21,21 +26,23 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm navbar-dark justify-content:space-inbetween">
+  <nav class="navbar navbar-expand-sm">
     <div class="container-fluid">
       <div class="p-3 col-sm-1">
         <picture>
           <source srcset="..." type="image/svg+xml" />
           <div class="logo">
-            <img src="/public/images/BBest.png" class="img-fluid" alt="Pencil that checked off some checkboxes." />
-          </div>
+            <img src="../public/images/Ballot-Box.png" class="img-fluid"
+              alt="A person putting their ballot into a box." />
         </picture>
       </div>
     </div>
-    <div class="p-3 col-lg-3">
+
+    <div class=".navbar-brand container-fluid p-3 col-sm-10">
       <h1>Ballot-Box</h1>
     </div>
     </div>
+
     <div>
       <div class="nav-link">
         <div class="p-3 row-lg-6">
@@ -54,40 +61,26 @@
             </li>
           </ul>
         </div>
-      <!-- </div>
-      <div class="p-3 row-lg-6 bg-secondary-light text-center">
-        <a href="/profile">profile</a> |
-        <div class="p-3 row-lg-6 bg-secondary-light text-center">
-          <a href="/profile">logout</a>
-      </div> -->
-    </div>
+        </div>
+
+      </div>
   </nav>
   <div>
-  <div class="create-container row-lg-12">
-    <!-- <div class="card">
-      <div class="card-body"> -->
-        <!-- <h5 class="card-title">Create a Poll</h5>
-        <p class="card-text">
-          Start your own poll from our easy to-use templates!
-        </p> -->
-        <a href="./poll-create.handlebars" class="btn btn-success">Create a Poll</a>
-      <!-- </div> -->
-    <!-- </div> -->
-  </div>
+    </div>
   </div>
   <div>
-  <div class="feed-container row-lg-10">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Poll Feed</h5>
-        <p class="card-text">
-          View polls that you have created or that you have been invited to.
-        </p>
-        <a href="./poll-feed.handlebars" class="btn btn-success">Poll Feed</a>
+    <div class="feed-container row-lg-10">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" id="poll-feed">Poll Feed</h5>
+          <p class="card-text">
+            View polls that you have created or that you have been invited to.
+          </p>
+        </div>
       </div>
     </div>
   </div>
-  </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
