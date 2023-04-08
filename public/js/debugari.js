@@ -1,12 +1,10 @@
 const getPolls = async () => {
-  const response = await fetch(`/api/polls`);
+  const response = await fetch(`/api/poll`);
   const data = await response.json();
   renderPolls(data);
 };
 
 const renderPolls = (data) => {
-  const container = document.querySelector("#AllpPollsContainer");
-
   data.forEach((poll) => {
     let selections = [];
     let votes = [];
@@ -15,11 +13,6 @@ const renderPolls = (data) => {
       selections.push(question.answerText);
       votes.push(question.users.length);
     });
-
-    const canvasId = `poll-${poll.id}`;
-    const canvasEl = document.createElement("canvas");
-    canvasEl.setAttribute("id", canvasId);
-    container.appendChild(canvasEl);
 
     new Chart(canvasEl, {
       type: "bar",
@@ -92,4 +85,4 @@ const init = () => {
   getPolls();
 };
 
-init();
+//init();
