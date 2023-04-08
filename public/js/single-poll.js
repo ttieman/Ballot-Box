@@ -1,8 +1,10 @@
 const getPoll = async (id) => {
+  //get id from URL and fetch the poll pK
   const poll_id = window.location.href.split("/").pop();
   const response = await fetch(`/api/poll/${poll_id}`);
   const data = await response.json();
 
+  //extract data from the poll object
   let selections = [];
   let votes = [];
   let title = data.question;
@@ -42,6 +44,7 @@ const renderPoll = (selections, votes, title) => {
   const container = document.querySelector("#pollContainer");
   container.appendChild(card);
 
+  //chartJS tutorial
   chart = new Chart(canvasEl, {
     type: "bar",
     data: {
