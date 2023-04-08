@@ -4,38 +4,39 @@ const { Poll, PollQuestions, PollVotes, User } = require("../../models");
 const { fn, col } = require("sequelize");
 
 router.get("/", async (req, res) => {
-  //http://localhost:3001/api/poll
-  try {
-    const allPollData = await Poll.findAll({
-      include: [
-        {
-          model: PollQuestions,
-          include: [
-            {
-              model: User,
-              attributes: {
-                exclude: ["password"],
-              },
-            },
-          ],
-        },
-      ],
-    });
+    //http://localhost:3001/api/poll
+    try {
+        const allPollData = await Poll.findAll({
+            include: [
+                {
+                    model: PollQuestions,
+                    include: [
+                        {
+                            model: User,
+                            attributes: {
+                                exclude: ["password"],
+                            },
+                        },
+                    ],
+                },
+            ],
+        });
 
-    if (!allPollData) {
-      res.status(404).json({ message: "no data found" });
+        if (!allPollData) {
+            res.status(404).json({ message: "no data found" });
+        }
+        const polls = allPollData.map((poll) => poll.get({ plain: true }));
+
+        res.status(200).json(polls);
+    } catch (err) {
+        res.status(400).json(err);
     }
-    const polls = allPollData.map((poll) => poll.get({ plain: true }));
-
-    res.status(200).json(polls);
-  } catch (err) {
-    res.status(400).json(err);
-  }
 });
 
 // GET /api/poll/:id
 //get single poll by id   http://localhost:3001/api/poll/1
 router.get("/:id", async (req, res) => {
+
   try {
     const pollData = await Poll.findByPk(req.params.id, {
       include: [
@@ -61,6 +62,7 @@ router.get("/:id", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+
 });
 
 // POST /api/poll/create to vote on poll only if logged in
@@ -203,10 +205,35 @@ router.get("/count/:id", async (req, res) => {
       return;
     }
 
-    const pollWithVotesCount = pollData.toJSON();
-    pollWithVotesCount.pollquestions.forEach((pollQuestion) => {
-      pollQuestion.voteCount = pollQuestion.votes.length;
-    });
+
+//delete route to delete a poll by id only for the posts that belong to the logged in user
+router.delete("/delete/:id", async (req, res) => {
+    //http://localhost:3001/api/poll/delete/:id
+    try {
+        const pollId = parseInt(req.params.id, 10);
+        if (isNaN(pollId)) {
+            res.status(400).json({ message: 'Invalid poll id' });
+            return;
+        }
+
+        const pollData = await Poll.destroy({
+            where: {
+                id: pollId,
+                owner_id: 1, // Set owner_id manually for testing purposes
+            },
+        });
+
+        if (!pollData) {
+            res.status(404).json({ message: 'No poll found with that id!' });
+            return;
+        }
+
+        res.status(200).json(pollData);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'An error occurred while deleting the poll' });
+    }
+});
 
     res.status(200).json(pollWithVotesCount);
   } catch (err) {
