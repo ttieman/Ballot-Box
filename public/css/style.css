@@ -140,3 +140,15 @@ body {
   flex-direction: column;
   margin: 10px;
 }
+
+#addPollContainer {
+  display: none;
+}
+
+#pollsContainer {
+  display: block;
+}
+
+#addPoll {
+  display: block;
+}

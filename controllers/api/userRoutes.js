@@ -27,10 +27,9 @@ router.post("/signup", async (req, res) => {
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
-    });
 
-    // Redirect the user to the login route
-    res.status(200).json(dbUserData);
+      res.status(200).json(dbUserData);
+    });
   } catch (err) {
     res.status(400).json(err);
   }
