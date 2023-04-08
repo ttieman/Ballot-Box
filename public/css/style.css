@@ -1,5 +1,4 @@
 * {
-  /* font-family: 'Nunito Sans', sans-serif !important; */
   box-sizing: border-box;
 }
 
@@ -23,6 +22,7 @@ button {
   color: #0a5133;
   text-decoration: underline;
 }
+
 
 div {
   margin: 0px!important;
@@ -76,7 +76,7 @@ a {
 
 body {
   background-color: rgb(238, 219, 195) !important;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 18px;
   font-weight: bold!important;
   line-height: 0.5;
@@ -116,12 +116,12 @@ body {
 .btn {
   background-color: rgb(35, 144, 13) !important;
   color: #fff !important;
-  padding: 15px 20px!important;
+  padding: 15px 20px !important;
   border: none;
   border-radius: 5px;
   text-decoration: none;
   font-size: 1.5em;
-  margin: 50px!important;
+  margin: 50px !important;
 }
 
 .btn:hover {
@@ -144,3 +144,18 @@ body {
   padding: 3em;
 }
 
+
+  margin: 10px;
+}
+
+#addPollContainer {
+  display: none;
+}
+
+#pollsContainer {
+  display: block;
+}
+
+#addPoll {
+  display: block;
+}

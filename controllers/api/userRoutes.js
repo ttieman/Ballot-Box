@@ -9,19 +9,18 @@ router.post("/signup", async (req, res) => {
   try {
     // Check if the email already exists in the database
     const existingUser = await User.findOne({
-      where: { email: req.body.email },
+      where: { username: req.body.username },
     });
 
     if (existingUser) {
       // If the email already exists, return an error
-      res.status(400).json({ message: "Email already exists" });
+      res.status(400).json({ message: "Username already exists" });
       return;
     }
 
     // If the email doesn't exist, create the user
     const dbUserData = await User.create({
-      name: req.body.name,
-      email: req.body.email,
+      username: req.body.username,
       password: req.body.password,
     });
 
@@ -29,8 +28,7 @@ router.post("/signup", async (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
 
-      // Redirect the user to the login route
-      res.redirect("/login");
+      res.status(200).json(dbUserData);
     });
   } catch (err) {
     res.status(400).json(err);
@@ -53,7 +51,7 @@ router.post("/logout", (req, res) => {
 router.post("/login", async (req, res) => {
   //http://localhost:3001/api/users/login
   // Check if the user is already logged in
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     if (req.headers.accept === "application/json") {
       res.status(400).json({ message: "You are already logged in!" });
     } else {
@@ -64,7 +62,9 @@ router.post("/login", async (req, res) => {
 
   try {
     // Find user by email
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const userData = await User.findOne({
+      where: { username: req.body.username },
+    });
 
     if (!userData) {
       res
@@ -84,7 +84,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       // Check if the request is from Insomnia (Accept header is set to 'application/json')
       if (req.headers.accept === "application/json") {
@@ -112,7 +112,7 @@ router.delete("/logout/:id", async (req, res) => {
       return;
     }
 
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).json({ message: "You are now logged out!" }).end();
       });

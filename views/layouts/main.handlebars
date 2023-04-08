@@ -67,9 +67,14 @@
             <li class="nav-item">
               <a class="nav-link active" href="#">Home</a>
             </li>
+             {{#if loggedIn}}
             <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
+              <a class="nav-link" href="/profile/{{user_id}}">Profile</a>
             </li>
+              <li class="nav-item">
+              <a class="nav-link" href="/account/logout">Logout</a>
+            </li>
+             {{/if}}
             {{#unless loggedIn}}
               <li class="nav-item">
                 <a class="nav-link" href="/account/login">Login</a>
@@ -91,6 +96,4 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"
   ></script>
-
-
 </html>

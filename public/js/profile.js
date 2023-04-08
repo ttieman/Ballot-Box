@@ -1,47 +1,37 @@
-const newFormHandler = async (event) => {
+const addPostHandler = () => {
+  console.log("hello");
+  document.querySelector("#addPollContainer").style.display = "block";
+  document.querySelector("#pollsContainer").style.display = "none";
+  document.querySelector("#addPoll").style.display = "none";
+};
+
+const postFormHandler = async (event) => {
   event.preventDefault();
+  const title = document.querySelector("#title-poll").value.trim();
+  const description = document.querySelector("#description-poll").value.trim();
+  const user_id = window.location.href.split("/").pop();
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
-
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+  if (title && description) {
+    const response = await fetch("/dashboard", {
+      method: "POST",
+      body: JSON.stringify({ title, description }),
+      headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace(`/dashboard/${user_id}`);
     } else {
-      alert('Failed to create project');
+      alert("Failed to post");
     }
   }
 };
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
-
-    const response = await fetch(`/api/projects/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete project');
-    }
-  }
-};
+document.querySelector("#addPollContainer").style.display = "none";
+document.querySelector("#pollsContainer").style.display = "block";
+document.querySelector("#addPoll").style.display = "block";
 
 document
-  .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
+  .querySelector(".poll-form")
+  .addEventListener("submit", postFormHandler);
 
-document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+document.querySelector("#addPoll").addEventListener("click", addPostHandler);
