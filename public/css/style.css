@@ -1,6 +1,4 @@
 * {
-  /* font-family: 'Nunito Sans', sans-serif !important; */
-  font-family: "Nunito Sans", sans-serif !important;
   box-sizing: border-box;
 }
 
@@ -30,7 +28,7 @@ h1 {
   flex-direction: row !important;
   justify-content: flex-start !important;
   align-items: center;
-  font-family: "Inter", sans-serif!important;
+  font-family: 'Inter', sans-serif!important;
   font-weight: bolder!important;
   font-size: 5em;
   font-style: bolder;
@@ -47,8 +45,6 @@ h2 {
 
 h5 {
   font-size: 2em!important;
-  font-size: 2em !important;
-  font-weight: bold;
   color: rgb(35, 144, 13) !important;
   font-family: 'Inter', sans-serif!important;
 }
