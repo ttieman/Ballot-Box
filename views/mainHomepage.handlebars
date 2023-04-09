@@ -1,8 +1,8 @@
 <main class="container container-fluid mt-5 rounded-top-5">
-  <div id="AllpPollsContainer" class="constainer text-center">
+  <div id="allPollsContainer" class="constainer text-center">
     {{#each polls}}
       <div class="card bg-info-subtle m-3 rounded-4">
-        <header class="card-header bg-dark text-white">
+        <header class="card-header --bs-body-color bg-secondary text-white">
           <div class="row">
             <h2 class="h2 col-8 text-white text-start">
               <a class="text-white'" href="/poll/{{id}}">{{question}}</a>
@@ -15,10 +15,19 @@
         </header>
         <div class="card-body">
           <div class="row align-center mb-3">
-
-            <div class="col-md-12">
+            <div class="col-md-4">
+              <picture>
+                <source srcset="..." type="image/svg+xml" />
+                <div class="checkmark">
+                  <img
+                    src="/images/Checkmark.png"
+                    class="img-fluid"
+                    alt="A person putting their ballot into a box."
+                  />
+                </div>
+              </picture>
               {{#each pollquestions}}
-                <p class="fs-5 text-start ps-4">{{answerText}}</p>
+                <p class="fs-4 text-start ps-4">{{answerText}}</p>
               {{/each}}
             </div>
           </div>

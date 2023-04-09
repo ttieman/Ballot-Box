@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Ballot-Box!</title>
     <!--  Favicon image  -->
-    <link
-      href="../public/images/Pencil-Favicon.ico"
-      rel="icon"
-      type="image/x-icon"
-    />
+    <link href="/images/Pencil-Favicon.ico" rel="icon" type="image/x-icon" />
     <!-- Nunito Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,20 +36,20 @@
 
   <body>
     <nav class="navbar navbar-expand-sm">
-      <div class="container-fluid">
-        <div class="p-3 col-sm-1">
-          <picture>
-            <source srcset="..." type="image/svg+xml" />
-            <div class="logo">
-              <img
-                src="/images/Ballot-Box.png"
-                class="img-fluid"
-                alt="A person putting their ballot into a box."
-              />
-            </div>
-          </picture>
+      <div class="container-fluid p-0">
+        <div>
+          <div class="logo">
+            <iframe
+              src="https://giphy.com/embed/BqydFXNb6XQ6oKklTo"
+              width="50%"
+              height="50%"
+              style="position:relative"
+              frameBorder="0"
+              class="giphy-embed"
+              allowFullScreen
+            ></iframe></div>
         </div>
-        <div class=".navbar-brand container-fluid p-3 col-sm-11">
+        <div class=".navbar-brand container-fluid p-1 col-sm-11">
           <h1>Ballot-Box</h1>
         </div>
       </div>
@@ -77,11 +73,6 @@
                 <a class="nav-link" href="/account/login">Login</a>
               </li>
             {{/unless}}
-            {{#if loggedIn}}
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Logout</a>
-            </li>
-             {{/if}}
           </ul>
         </div>
       </div>

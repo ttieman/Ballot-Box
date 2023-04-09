@@ -1,5 +1,5 @@
 const getPoll = async (id) => {
-  //get id from URL and fetch the poll pK
+  //get id from URL and fetch the poll
   const poll_id = window.location.href.split("/").pop();
   const response = await fetch(`/api/poll/${poll_id}`);
   const data = await response.json();
