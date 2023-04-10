@@ -3,7 +3,7 @@ const sequelize = require("../../config/connection");
 const { Poll, PollQuestions, PollVotes, User } = require("../../models");
 const { fn, col } = require("sequelize");
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res) => { //get 
   //http://localhost:3001/api/poll
   try {
     const allPollData = await Poll.findAll({
@@ -22,6 +22,8 @@ router.get("/", async (req, res) => {
       ],
     });
 
+
+
     if (!allPollData) {
       res.status(404).json({ message: "no data found" });
     }
@@ -32,6 +34,23 @@ router.get("/", async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+//GET poll create page only if logged in
+router.get("/create/poll", async (req, res) => {
+  try {
+    if (req.session.loggedIn) {
+      res.render("createpoll", {
+        loggedIn: req.session.loggedIn,
+      });
+    } else {
+      res.redirect("/login");
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 // GET /api/poll/:id
 //get single poll by id   http://localhost:3001/api/poll/1
@@ -64,15 +83,28 @@ router.get("/:id", async (req, res) => {
 });
 
 // POST /api/poll/create to vote on poll only if logged in
+const formatPollResponse = (poll) => {
+  return {
+    id: poll.id,
+    question: poll.question,
+    date_created: poll.date_created,
+    owner_id: poll.owner_id,
+    pollquestions: poll.pollquestions.map((question) => ({
+      id: question.id,
+      poll_id: question.poll_id,
+      answerText: question.answerText,
+      users: question.users,
+    })),
+  };
+};
+
 router.post("/create", async (req, res) => {
   try {
-    // if (req.session.loggedIn) {
     const pollData = await Poll.create({
       question: req.body.question,
       owner_id: 1, // Set owner_id manually for testing purposes
     });
 
-    // Create the poll questions (answer options)
     const answerPromises = req.body.answers.map((answerText) => {
       return PollQuestions.create({
         poll_id: pollData.id,
@@ -80,7 +112,6 @@ router.post("/create", async (req, res) => {
       });
     });
 
-    // Wait for all poll questions to be created
     await Promise.all(answerPromises);
 
     const pollWithAnswers = await Poll.findByPk(pollData.id, {
@@ -98,15 +129,12 @@ router.post("/create", async (req, res) => {
         },
       ],
     });
-    res.status(200).json(pollWithAnswers);
-    // } else {
-    //   res.status(400).json({ message: 'You must be logged in to create a poll!' });
-    // }
-  } catch (err) {
-    console.error(err);
-    res
-      .status(500)
-      .json({ message: "An error occurred while creating the poll" });
+    console.log(pollWithAnswers);
+    res.status(201).json(formatPollResponse(pollWithAnswers));
+    res.render("mainHomepage");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Error creating poll" });
   }
 });
 
