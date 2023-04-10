@@ -18,7 +18,7 @@ button {
   margin-left: 10px;
 }
 
-.no-button:hover {
+button:hover {
   color: #0a5133;
   text-decoration: underline;
 }
@@ -27,47 +27,61 @@ h1 {
   display: flex!important;
   flex-direction: row !important;
   justify-content: flex-start !important;
-  /* align-items: center; */
   font-family: 'Inter', sans-serif!important;
   font-weight: bolder!important;
-  font-size: 5em;
+  font-size: 1.5em!important;
   font-style: bolder;
   margin: 10px;
   color: white !important;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.5em!important;
+  font-weight: bold;
   margin: 1em;
   justify-items: center!important;
-  color: rgb(35, 144, 13) !important;
 }
 
 h5 {
   font-size: 2em!important;
-  color: rgb(35, 144, 13) !important;
+  background-color: rgb(36, 146, 104) !important;
   font-family: 'Inter', sans-serif!important;
 }
 
 a,
 nav {
   display: flex;
-  color: rgb(35, 144, 13) !important;
+  color: rgb(44, 163, 117) !important;
   text-decoration: none !important;
   letter-spacing: 4px;
 }
 
 nav {
-  font-size: 1.5em;
-  background-color: green;
+  font-size: 1.7em;
+  background-color: rgb(36, 146, 104) !important;
   justify-content: flex-end !important;
   font-weight: bold;
   font-family: 'Inter', sans-serif!important;
 }
 
 a {
-  /* margin-right: 10px; */
+  margin-right: 10px;
   color: white !important;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
 }
 
 body {
@@ -87,8 +101,8 @@ body {
   align-items: center;
   list-style: none;
   text-align: center;
-  /* padding: 0px 10px; */
   color: white !important;
+  margin-right: 10px;
 }
 
 .logo {
@@ -96,9 +110,9 @@ body {
   justify-content:right!important;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-right: 2px;
+  margin-right: 4px;
   margin-left: 0px;
-  padding: 0px;
+  padding: 2px;
 }
 
 #logout {
@@ -109,19 +123,30 @@ body {
 }
 
 .btn {
-  display: flex;
-  background-color: rgb(35, 144, 13) !important;
-  color: #fff !important;
-  padding: 15px 20px !important;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1.5em;
-  margin: 50px !important;
+  padding: 10px 15px !important;
+  margin: 40px 0px 0px 0px !important;
 }
 
-.btn:hover {
-  background-color: #0a5133;
+button {
+  padding: 15px 25px;
+  font-size: 18px!important;
+  text-align: center!important;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  max-width: 7em;
+  background-color: rgb(36, 146, 104) !important;
+  border: none;
+  border-radius: 15px!important;
+  box-shadow: 0 9px #1e846965!important;
+}
+
+.button:hover {background-color: #1e846965!important;}
+
+.button:active {
+  background-color: rgb(36, 146, 104) !important;
+  box-shadow: 0 5px #1e846965!important;
+  transform: translateY(4px)!important;
 }
 
 .create-container {
@@ -147,6 +172,13 @@ body {
   margin: 20px 25px 25px 25px;
   height: 10%;
   width: 20%;
+}
+
+
+#computer-gif {
+  /* justify-items: flex-start!important; */
+  /* justify-content: flex-start!important; */
+  margin: 10px;
 }
 
 #login-title {
