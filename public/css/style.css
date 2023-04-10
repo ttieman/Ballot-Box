@@ -81,14 +81,12 @@ body {
 
 }
 
-.logo {
-  display: inline-flex;
-  justify-content:right;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-right: 4px;
-  margin-left: 0px;
-  padding: 2px;
+.home {
+
+}
+
+.login {
+
 }
 
 #logout {
@@ -98,8 +96,15 @@ body {
   justify-content: flex-end;
 }
 
-/* .button { */
-  /* display:flex; */
+.logo {
+  display: inline-flex;
+  justify-content:right;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-right: 4px;
+  margin-left: 0px;
+  padding: 2px;
+}
 
   .button {
     margin-top: 30px;
@@ -144,6 +149,14 @@ body {
 
 }
 
+#login-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
 .hand {
   margin: 30px 18px 10px 25px;  
 }
@@ -170,13 +183,6 @@ body {
   margin: 10px;
 } */
 
-#login-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-}
 
 #addPollContainer {
   display: none;
