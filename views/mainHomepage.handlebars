@@ -1,20 +1,23 @@
-<main
-  class="container fluid-container d-flex justify-content-sm-center align-self-baseline ml-20 w-50"
->
-  {{! class="container fluid-container d-flex justify-content-sm-center p-2 bd-highlight"
-> }}
-  <div>
-    <div class="container fluid container align-self-start d-inline-flex mr-0 ml-0">
-      <img
-        src="/images/businessman-shaking-hands-with-client (2).jpg"
-        class="img-fluid w-50"
-        alt="Businessman shaking hands with client."
-      />
+<main class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-5">
+        <img src="/images/makeYourMark.gif" />
+      </div>
+      <div class="h3 col-7 fw-bold">
+        <h2 class="title-desc">Join Ballot-Box and make your opinion count!</h2>
+        <p class="description">Discover Ballot-Box, your one-stop solution for 
+          real-time polling. Easily create custom polls, 
+          share them globally, and gain instant insights.</p>
+      </div>
     </div>
+
+  </div>
+  <div>
     <div class="container container-fluid d-flex mt-0 rounded-top-5">
       <div
         id="allPollsContainer"
-        class="constainer text-center fw-bold justify-content-sm-center"
+        class="container text-center fw-bold justify-content-sm-center"
       >
         {{#each polls}}
           <div class="card bg-info-subtle m-3 rounded-4">
