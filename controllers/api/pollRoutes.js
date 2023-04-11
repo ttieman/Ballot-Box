@@ -27,6 +27,12 @@ router.get("/", async (req, res) => { //get
     if (!allPollData) {
       res.status(404).json({ message: "no data found" });
     }
+    const polls = allPollData.map((poll) => poll.get({ plain: true }));
+
+    res.status(200).json(polls);
+} catch (err) {
+    res.status(400).json(err);
+}
 });
 
 //GET poll create page only if logged in
