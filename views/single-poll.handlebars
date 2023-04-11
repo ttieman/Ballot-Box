@@ -1,6 +1,6 @@
 <main class="container container-fluid mt-5 rounded-top-5">
-  <h2 class="pollQuestion h1 col-8 text-start fw-bold">{{poll.question}}</h2>
-  <div class="align-self-center col-3 text-end m-3">
+  <h2 class="h1 col-11 text-success fw-bold text-center">{{poll.question}}</h2>
+  <div class="h4 text-center col-11 text-end m-4 fw-bold">
     Posted by
     {{poll.owner.username}}
     on
@@ -11,7 +11,7 @@
     <div class="row align-center mb-3">
       <div class="col-md-12">
         {{#each poll.pollquestions}}
-          <div class="form-check fs-5 text-start ps-4">
+          <div class="form-check fs-5 text-start">
             <input
               class="form-check-input"
               type="radio"
@@ -19,40 +19,32 @@
               id="choice{{@index}}"
               value="{{this.id}}"
             />
-            <label class="form-check-label letter-spacing: 4px m-2" for="choice{{@index}}">
+            <label class="form-check-label h4 letter-spacing: 5px fw-bold mb-3" for="choice{{@index}}">
               {{this.answerText}}
             </label>
           </div>
         {{/each}}
       </div>
     </div>
-    <div class="submit d-flex justify-content-center align-items-center">
-      <div class="form-group col-3">
-        <button
-          class="button btn btn-primary btn-lg text-white fw-bold"
-          type="submit"
-        >Submit</button>
-      </div>
-    </div>
-    <div class="results d-flex justify-content-center align-items-center">
-      <div class="form-group col-3">
-        <button
-          class="button btn btn-primary btn-lg text-white fw-bold"
-          type="submit"
-        >Results</button>
-      </div>
-    </div>
-              <div class="card bg-info-subtle mt-4 p-3 rounded-4 shadow-lg text-white">
-            {{!-- <header class="card-header --bs-body-color bg-secondary text-white"> --}}
-              <div class="row">
+    <div class="form-group col-lg-7 col-sm-3">
+      <button
+        type="submit"
+        id="submitBtn"
+        class="button btn btn-primary btn-lg text-white fw-bold"
+      >Submit</button>
+      <button
+        type="button"
+        id="resultsBtn"
+        class="button btn btn-primary btn-lg text-white fw-bold"
+      >Show Results</button>
 
-    {{! <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
-    <button type="button" id="resultsBtn" class="btn btn-secondary">Show Results</button> }}
+    </div>
   </form>
-  <div id="pollContainer" class="container text-center"></div>
-  <div id="resultsGraph" class="d-none">
+
+    <div id="pollContainer" class="container text-center"></div>
+    <div id="resultsGraph" class="d-none">
+
     <!-- The graph container will be displayed here once the button is clicked -->
-  </div>
   </div>
 </main>
 
