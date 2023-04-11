@@ -27,6 +27,10 @@ h1 {
   color: white;
 }
 
+.brand {
+  font-size: 1em;
+  
+}
 h2 {
   font-size: 2em;
   font-weight: bolder;
@@ -64,46 +68,6 @@ nav {
   color: white !important;
 }
 
-/* Style the navbar */
-#navbar {
-  overflow: hidden;
-  background-color: rgb(99, 163, 117);
-}
-
-#navbar a {
-  float: left;
-  display: block;
-  background-color: rgb(99, 163, 117);
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 30px;
-}
-
-#navbar a:hover {
-  background-color: rgb(99, 163, 117);
-  color: black;
-}
-
-#navbar a.active {
-  background-color: rgb(99, 163, 117);
-  color: white;
-}
-
-.content {
-  padding: 16px;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.sticky+.content {
-  padding-top: 60px;
-}
-
 body {
   background-color: rgb(238, 219, 195);
   font-size: 20px;
@@ -122,16 +86,6 @@ body {
   padding-bottom: 0px;
   color: rgb(99, 163, 117);
   justify-content: flex-end;
-}
-
-.logo {
-  display: inline-flex;
-  justify-content: right;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-right: 4px;
-  margin-left: 0px;
-  padding: 2px;
 }
 
 .button {

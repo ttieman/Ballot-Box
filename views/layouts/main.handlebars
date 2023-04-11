@@ -35,27 +35,29 @@
   </head>
 
   <body>
-<nav class="navbar bg-body-tertiary">
-    {{!-- <nav class="navbar navbar-expand-sm container-fluid sticky-top"> --}}
+    <nav class="navbar sticky-top navbar-expand-lg">
       <div class="container-fluid">
-        <div>
-          <div class="logo">
-            <iframe
-              src="https://giphy.com/embed/BqydFXNb6XQ6oKklTo"
-              width="50%"
-              height="50%"
-              style="position:relative"
-              frameBorder="0"
-              class="giphy-embed"
-              allowFullScreen
-            ></iframe></div>
-        </div>
-        <div class="h1 container-fluid p-1 col-lg-11 col-sm-2">
-          <h1>Ballot-Box</h1>
-        </div>
-      </div>
-      <div id="navbar nav-link">
-        <div class="p-5 row-lg-6">
+        <iframe
+          src="https://giphy.com/embed/BqydFXNb6XQ6oKklTo"
+          frameBorder="0"
+          class=""
+          class="img-fluid"
+          allowFullScreen
+        ></iframe>
+        <a class="navbar-brand brand" href="#">Ballot-Box</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link active" href="/">Home</a>
