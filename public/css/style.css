@@ -1,10 +1,10 @@
-/* :root {
-  --almond: EEDBC3;
-  --raisin: 191923;
-  --mint: 63A375;
-  --honolulu blue: 0E79B2;
-  --cal poly green: 004F2D;
-} */
+:root {
+  --almond: #EEDBC3;
+  --raisin: #191923;
+  --mint: #63A375;
+  --honolulu-blue: #0E79B2;
+  --cal-poly-green: #004F2D;
+}
 
 * {
   box-sizing: border-box;
@@ -112,10 +112,10 @@ body {
   color: rgb(25, 25, 35);
 }
 
-img {
+/* img {
   max-width: 100%;
   height: auto;
-}
+} */
 
 #logout {
   display: flex-end;
@@ -228,7 +228,7 @@ img {
   display: block;
 }
 
-/* // Small devices (landscape phones, 576px and up) */
+/* // Small devices (landscape phones, 576px and up)
 @media (max-width: 576px) {
 
   img,
@@ -264,13 +264,13 @@ img {
     font-size: 15px;
   }
 }
-
+*/
 /* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {}
+/* @media (min-width: 768px) {} */
 
 /* 
 // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {}
+/* @media (min-width: 992px) {} */
 
 /* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
+/* @media (min-width: 1200px) {} */
