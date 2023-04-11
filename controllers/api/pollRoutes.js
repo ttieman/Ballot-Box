@@ -232,46 +232,44 @@ router.get("/count/:id", async (req, res) => {
     if (!pollData) {
       res.status(404).json({ message: "No poll found with that id!" });
       return;
-    }
-
-    //delete route to delete a poll by id only for the posts that belong to the logged in user
-    router.delete("/delete/:id", async (req, res) => {
-      //http://localhost:3001/api/poll/delete/:id
-      try {
-        const pollId = parseInt(req.params.id, 10);
-        if (isNaN(pollId)) {
-          res.status(400).json({ message: "Invalid poll id" });
-          return;
-        }
-
-        const pollData = await Poll.destroy({
-          where: {
-            id: pollId,
-            owner_id: 1, // Set owner_id manually for testing purposes
-          },
-        });
-
-        if (!pollData) {
-          res.status(404).json({ message: "No poll found with that id!" });
-          return;
-        }
-
-        res.status(200).json(pollData);
-      } catch (err) {
-        console.error(err);
-        res
-          .status(500)
-          .json({ message: "An error occurred while deleting the poll" });
-      }
-    });
-
-    res.status(200).json(pollWithVotesCount);
+    } res.status(200).json(pollWithVotesCount);
   } catch (err) {
     console.error(err);
-    res
-      .status(500)
-      .json({ message: "An error occurred while retrieving the poll data" });
+    res.status(500).json({ message: "An error occurred while retrieving the poll data" });
   }
 });
+
+//delete route to delete a poll by id only for the posts that belong to the logged in user
+router.delete("/delete/:id", async (req, res) => {
+  //http://localhost:3001/api/poll/delete/:id
+  try {
+    const pollId = parseInt(req.params.id, 10);
+    if (isNaN(pollId)) {
+      res.status(400).json({ message: "Invalid poll id" });
+      return;
+    }
+
+    const pollData = await Poll.destroy({
+      where: {
+        id: pollId,
+        owner_id: 1, // Set owner_id manually for testing purposes
+      },
+    });
+
+    if (!pollData) {
+      res.status(404).json({ message: "No poll found with that id!" });
+      return;
+    }
+
+    res.status(200).json(pollData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "An error occurred while deleting the poll" });
+  }
+});
+
+
+
+
 
 module.exports = router;

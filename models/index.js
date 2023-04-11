@@ -37,7 +37,8 @@ PollQuestions.belongsTo(Poll, {
 
 PollQuestions.hasMany(PollVotes, {
   foreignKey: 'pollquestion_id',
-  as: 'votes'
+  as: 'votes',
+  onDelete: "CASCADE",
 });
 PollVotes.belongsTo(PollQuestions, {
   foreignKey: 'pollquestion_id'
