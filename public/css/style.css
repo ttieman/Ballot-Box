@@ -1,3 +1,11 @@
+/* :root {
+  --almond: EEDBC3;
+  --raisin: 191923;
+  --mint: 63A375;
+  --honolulu blue: 0E79B2;
+  --cal poly green: 004F2D;
+} */
+
 * {
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
@@ -30,12 +38,12 @@ h2 {
 h5 {
   font-size: 2em;
   background-color: rgb(99, 163, 117);
-
 }
 
 a {
   display: flex;
-  margin: 0px;
+  margin-left: 15px;
+  font-size: 20px;
   width: 100%;
   color: white !important;
   text-decoration: none;
@@ -43,20 +51,58 @@ a {
   font-weight: bold;
 }
 
-a:hover {background-color: #3e8e41}
-
+a:hover,
 a:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+  font-size: 110%;
+  transition: 0.3s;
+  color: rgb(231, 111, 81)!important;
 }
 
 nav {
   font-size: 1.7em !important;
   background-color: rgb(99, 163, 117);
   color: white !important;
-} 
+}
 
+/* Style the navbar */
+#navbar {
+  overflow: hidden;
+  background-color: rgb(99, 163, 117);
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  background-color: rgb(99, 163, 117);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+#navbar a:hover {
+  background-color: rgb(99, 163, 117);
+  color: black;
+}
+
+#navbar a.active {
+  background-color: rgb(99, 163, 117);
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
 /* .fa-twitter {
   background: #55ACEE;
   color: white;
@@ -78,10 +124,10 @@ body {
   color: rgb(25, 25, 35);
 }
 
-.home {
-
+img {
+  max-width: 100%;
+  height: auto;
 }
-
 #logout {
   display: flex-end;
   padding-bottom: 0px;
@@ -91,7 +137,7 @@ body {
 
 .logo {
   display: inline-flex;
-  justify-content:right;
+  justify-content: right;
   flex-direction: row;
   justify-content: space-evenly;
   margin-right: 4px;
@@ -99,23 +145,25 @@ body {
   padding: 2px;
 }
 
-  .button {
-    margin-top: 30px;
-    margin-left: 25px;
-    padding: 10px 15px;
-    font-size: 20px;
-    min-width: 7em;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color:rgb(99, 163, 117);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
+.button {
+  margin-top: 30px;
+  margin-left: 25px;
+  padding: 10px 15px;
+  font-size: 20px;
+  min-width: 7em;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: rgb(99, 163, 117);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
 
-.button:hover {background-color: #3e8e41}
+.button:hover {
+  background-color: #3e8e41
+}
 
 .button:active {
   background-color: #3e8e41;
@@ -130,18 +178,16 @@ body {
   margin: 10px;
 }
 
+.title-desc {
+  /* color: rgb(244, 96, 54); */
+  color: rgb(231, 111, 81);
+}
+
 .description {
   font-weight: bolder;
   color: rgb(25, 25, 35);
   /* color: rgb(99, 163, 117); */
   /* color: rgb(0, 79, 45); */
-
-}
-
-.title-desc {
-  /* color: rgb(244, 96, 54); */
-  color: rgb(231, 111, 81);
-
 }
 
 #login-title {
@@ -153,7 +199,7 @@ body {
 }
 
 .hand {
-  margin: 30px 18px 10px 25px;  
+  margin: 30px 18px 10px 25px;
 }
 
 .feed-container {
@@ -177,7 +223,9 @@ body {
 /* #computer-gif {
   margin: 10px;
 } */
-
+.pollQuestion {
+  color: rgb(231, 111, 81);
+}
 
 #addPollContainer {
   display: none;

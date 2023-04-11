@@ -65,6 +65,7 @@ The MIT license is in the GitHub repository.  Click to link to view it:
 - Sequelize
 - Protected API Keys
 - An MVC file structure
+- Coolors color palette
 - Polished UI that's responsive
 
 
