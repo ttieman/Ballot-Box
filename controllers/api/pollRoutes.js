@@ -102,7 +102,7 @@ router.post("/create", async (req, res) => {
   try {
     const pollData = await Poll.create({
       question: req.body.question,
-      owner_id: 1, // Set owner_id manually for testing purposes
+      owner_id: req.session.user_id,
     });
 
     const answerPromises = req.body.answers.map((answerText) => {
@@ -168,7 +168,7 @@ router.post("/vote/:id", async (req, res) => {
     const existingVote = await PollVotes.findOne({
       where: {
         pollquestion_id: { [Op.in]: pollQuestions },
-        user_id: 1, // Set user_id manually for testing purposes
+        user_id: req.session.user_id,
       },
     });
 
@@ -177,7 +177,7 @@ router.post("/vote/:id", async (req, res) => {
     } else {
       await PollVotes.create({
         pollquestion_id: req.body.answerId,
-        user_id: 1, // Set user_id manually for testing purposes
+        user_id: req.session.user_id,
       });
 
       const pollWithAnswers = await Poll.findByPk(pollData.id, {
@@ -252,7 +252,7 @@ router.delete("/delete/:id", async (req, res) => {
     const pollData = await Poll.destroy({
       where: {
         id: pollId,
-        owner_id: 1, // Set owner_id manually for testing purposes
+        owner_id: req.session.user_id,
       },
     });
 
