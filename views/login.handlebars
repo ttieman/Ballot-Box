@@ -1,19 +1,19 @@
-<main class="container container-fluid mt-5">
-  <div class="card bg-info-subtle m-3 rounded-3">
-    <header class="card-header bg-dark text-white">
+<main class="container container-fluid d-flex justify-content-evenly mt-5">
+  <div class="card bg-info-subtle rounded-3 w-50 h-auto">
+    <header class="card-header bg-secondary text-white">
       <div class="row">
-        <h2 class="h2 col-9">
+        <h2 class="h2 col-12 text-white" id="login-title">
           Login
         </h2>
       </div>
     </header>
-    <div class="card-body">
+    <div class="card-body shadow-lg">
       <div class="row align-center p-1">
         <form class="form login-form">
-          <div class="form-group m-2">
+          <div class="form-group h4 fw-bold m-3">
             <label for="username-login">Username:</label>
             <input
-              class="form-control"
+              class="form-control form-control-lg"
               type="text"
               id="username-login"
               aria-describedby="usernameHelp"
@@ -21,29 +21,36 @@
             />
           </div>
 
-          <div class="form-group m-2">
+          <div class="form-group h4 fw-bold m-3">
             <label for="password-login">Password:</label>
             <input
-              class="form-control"
+              class="form-control form-control-lg"
               type="password"
               id="password-login"
               placeholder="Password"
             />
           </div>
 
-          <div class="row justify-content-center align-items-center">
-            <div class="form-group col-2 my-3 text-center">
+          <div class="login d-flex justify-content-center align-items-center">
+            <div class="form-group">
               <button
-                class="btn btn-primary custom-btn"
-                type="submit"
-              >Login</button>
+                class="button btn btn-primary btn-lg text-white fw-bold"
+                type="submit">Login</button>
             </div>
 
-            <div class="form-group col-2 my-3 text-center">
-              <button class="btn btn-primary custom-btn" type="button"><a
-                  class="text-white"
-                  href="/account/signup"
-                >Sign Up</a></button>
+            <div>
+              <button
+                class="button btn btn-primary btn-lg text-white fw-bold"
+                type="/signup"
+              ><a class="text-white" href="/account/signup">Sign-Up</a></button>
+
+            </div>
+            <div class="hand d-flex justify-content-right w-25">
+              <img
+                src="/images/Ballot-Hand.png"
+                class="img-fluid"
+                alt="A person putting their ballot into a box."
+              />
             </div>
           </div>
         </form>
