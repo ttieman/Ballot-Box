@@ -32,10 +32,10 @@ document.getElementById("new-poll-form").addEventListener("submit", async (event
   });
 
   if (response.ok) {
-    alert("Poll created successfully");
+    console.log("Poll created successfully");
     window.location.href = "/"; // Redirect to home page or any other page
   } else {
-    alert("Error creating poll");
+    console.log("Error creating poll");
   }
 });
 

@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Poll, PollQuestions, PollVotes, User } = require("../../models");
-const { fn, col } = require("sequelize");
+const { fn, col, Op } = require("sequelize");
 
 router.get("/", async (req, res) => { //get 
   //http://localhost:3001/api/poll
@@ -102,7 +102,7 @@ router.post("/create", async (req, res) => {
   try {
     const pollData = await Poll.create({
       question: req.body.question,
-      owner_id: 1, // Set owner_id manually for testing purposes
+      owner_id: req.session.user_id,
     });
 
     const answerPromises = req.body.answers.map((answerText) => {
@@ -163,42 +163,45 @@ router.post("/vote/:id", async (req, res) => {
       ],
     });
 
+    const pollQuestions = pollData.pollquestions.map((question) => question.id);
+
     const existingVote = await PollVotes.findOne({
       where: {
-        pollquestion_id: req.body.answerId,
-        user_id: 1, // Set user_id manually for testing purposes
+        pollquestion_id: { [Op.in]: pollQuestions },
+        user_id: req.session.user_id,
       },
     });
 
-    if (!existingVote) {
+    if (existingVote) {
+      res.status(409).json({ message: "Duplicate vote prevented" });
+    } else {
       await PollVotes.create({
         pollquestion_id: req.body.answerId,
-        user_id: 1, // Set user_id manually for testing purposes
+        user_id: req.session.user_id,
       });
+
+      const pollWithAnswers = await Poll.findByPk(pollData.id, {
+        include: [
+          {
+            model: PollQuestions,
+            attributes: ["id", "poll_id", "answerText"],
+            include: [
+              {
+                model: User,
+                attributes: ["id", "username"],
+                exclude: ["password"],
+              },
+            ],
+          },
+        ],
+      });
+
+      res.status(200).json(pollWithAnswers);
+      res.render('single-poll');
     }
-
-    const pollWithAnswers = await Poll.findByPk(pollData.id, {
-      include: [
-        {
-          model: PollQuestions,
-          attributes: ["id", "poll_id", "answerText"],
-          include: [
-            {
-              model: User,
-              attributes: ["id", "username"],
-              exclude: ["password"],
-            },
-          ],
-        },
-      ],
-    });
-
-    res.status(200).json(pollWithAnswers);
   } catch (err) {
     console.error(err);
-    res
-      .status(500)
-      .json({ message: "An error occurred while voting on the poll" });
+    res.status(500).json({ message: "An error occurred while voting on the poll" });
   }
 });
 
@@ -229,46 +232,44 @@ router.get("/count/:id", async (req, res) => {
     if (!pollData) {
       res.status(404).json({ message: "No poll found with that id!" });
       return;
-    }
-
-    //delete route to delete a poll by id only for the posts that belong to the logged in user
-    router.delete("/delete/:id", async (req, res) => {
-      //http://localhost:3001/api/poll/delete/:id
-      try {
-        const pollId = parseInt(req.params.id, 10);
-        if (isNaN(pollId)) {
-          res.status(400).json({ message: "Invalid poll id" });
-          return;
-        }
-
-        const pollData = await Poll.destroy({
-          where: {
-            id: pollId,
-            owner_id: 1, // Set owner_id manually for testing purposes
-          },
-        });
-
-        if (!pollData) {
-          res.status(404).json({ message: "No poll found with that id!" });
-          return;
-        }
-
-        res.status(200).json(pollData);
-      } catch (err) {
-        console.error(err);
-        res
-          .status(500)
-          .json({ message: "An error occurred while deleting the poll" });
-      }
-    });
-
-    res.status(200).json(pollWithVotesCount);
+    } res.status(200).json(pollWithVotesCount);
   } catch (err) {
     console.error(err);
-    res
-      .status(500)
-      .json({ message: "An error occurred while retrieving the poll data" });
+    res.status(500).json({ message: "An error occurred while retrieving the poll data" });
   }
 });
+
+//delete route to delete a poll by id only for the posts that belong to the logged in user
+router.delete("/delete/:id", async (req, res) => {
+  //http://localhost:3001/api/poll/delete/:id
+  try {
+    const pollId = parseInt(req.params.id, 10);
+    if (isNaN(pollId)) {
+      res.status(400).json({ message: "Invalid poll id" });
+      return;
+    }
+
+    const pollData = await Poll.destroy({
+      where: {
+        id: pollId,
+        owner_id: req.session.user_id,
+      },
+    });
+
+    if (!pollData) {
+      res.status(404).json({ message: "No poll found with that id!" });
+      return;
+    }
+
+    res.status(200).json(pollData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "An error occurred while deleting the poll" });
+  }
+});
+
+
+
+
 
 module.exports = router;
