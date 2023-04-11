@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Poll, PollQuestions, PollVotes, User } = require("../../models");
-const { fn, col } = require("sequelize");
+const { fn, col, Op } = require("sequelize");
 
 router.get("/", async (req, res) => { //get 
   //http://localhost:3001/api/poll
@@ -163,42 +163,45 @@ router.post("/vote/:id", async (req, res) => {
       ],
     });
 
+    const pollQuestions = pollData.pollquestions.map((question) => question.id);
+
     const existingVote = await PollVotes.findOne({
       where: {
-        pollquestion_id: req.body.answerId,
+        pollquestion_id: { [Op.in]: pollQuestions },
         user_id: 1, // Set user_id manually for testing purposes
       },
     });
 
-    if (!existingVote) {
+    if (existingVote) {
+      res.status(409).json({ message: "Duplicate vote prevented" });
+    } else {
       await PollVotes.create({
         pollquestion_id: req.body.answerId,
         user_id: 1, // Set user_id manually for testing purposes
       });
+
+      const pollWithAnswers = await Poll.findByPk(pollData.id, {
+        include: [
+          {
+            model: PollQuestions,
+            attributes: ["id", "poll_id", "answerText"],
+            include: [
+              {
+                model: User,
+                attributes: ["id", "username"],
+                exclude: ["password"],
+              },
+            ],
+          },
+        ],
+      });
+
+      res.status(200).json(pollWithAnswers);
+      res.render('single-poll');
     }
-
-    const pollWithAnswers = await Poll.findByPk(pollData.id, {
-      include: [
-        {
-          model: PollQuestions,
-          attributes: ["id", "poll_id", "answerText"],
-          include: [
-            {
-              model: User,
-              attributes: ["id", "username"],
-              exclude: ["password"],
-            },
-          ],
-        },
-      ],
-    });
-
-    res.status(200).json(pollWithAnswers);
   } catch (err) {
     console.error(err);
-    res
-      .status(500)
-      .json({ message: "An error occurred while voting on the poll" });
+    res.status(500).json({ message: "An error occurred while voting on the poll" });
   }
 });
 
