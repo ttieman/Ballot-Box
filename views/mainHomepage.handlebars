@@ -6,7 +6,7 @@
       </div>
       <div class="h3 col-7 fw-bold">
         <h2 class="title-desc">Join Ballot-Box and make your opinion count!</h2>
-        <p class="description">Discover Ballot-Box, your one-stop solution for 
+        <p class="description text-muted">Discover Ballot-Box, your one-stop solution for 
           real-time polling. Easily create custom polls, 
           share them globally, and gain instant insights.</p>
       </div>
@@ -14,16 +14,17 @@
 
   </div>
   <div>
-    <div class="container container-fluid d-flex mt-0 rounded-top-5">
+    <div class="container container-fluid d-flex rounded-top-5">
       <div
         id="allPollsContainer"
         class="container text-center fw-bold justify-content-sm-center"
       >
         {{#each polls}}
-          <div class="card bg-info-subtle m-3 rounded-4 shadow-lg">
+          {{!-- <div class="card bg-info-subtle mt-4 rounded-4 shadow-lg"> --}}
+          <div class="card bg-info-subtle mt-4 p-3 rounded-4 shadow-lg">
             <header class="card-header --bs-body-color bg-secondary text-white">
               <div class="row">
-                <h2 class="h2 col-8 mt-3 text-white text-start">
+                <h2 class="h2 col-8 text-white text-start">
                   <a class="text-white'" href="/poll/{{id}}">{{question}}</a>
                 </h2>
                 <div class="align-self-center col-3 text-end m-2">Posted by
@@ -46,7 +47,7 @@
                     </div>
                   </picture>
                   {{#each pollquestions}}
-                    <p class="fs-4 text-start ps-4">{{answerText}}</p>
+                    <p class="fs-3 text-start ps-4">{{answerText}}</p>
                   {{/each}}
                 </div>
               </div>

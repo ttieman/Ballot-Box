@@ -78,7 +78,6 @@ body {
   font-weight: bold;
   line-height: 0.5;
   color: rgb(25, 25, 35);
-
 }
 
 .home {
@@ -134,7 +133,9 @@ body {
 }
 
 .description {
-  color: rgb(99, 163, 117);
+  font-weight: bolder;
+  color: rgb(25, 25, 35);
+  /* color: rgb(99, 163, 117); */
   /* color: rgb(0, 79, 45); */
 
 }
