@@ -1,56 +1,46 @@
-<header class='constainer text-center'>
-  <div class='row bg-dark text-white'>
-    <h1
-      class='h1 --bs-body-color col-4 p-2 mx-5 mb-4 bg-info-subtle text-dark rounded-3 header'
-    >Ballot-Box</h1>
-  </div>
-</header>
-
-<main class='container container-fluid mt-5'>
-  <div class='card bg-info-subtle m-3 rounded-3'>
-    <header class='card-header bg-dark text-white'>
-      <div class='row'>
-        <h2 class='h2 col-9'>
+<main class="container container-fluid d-flex justify-content-center mt-5">
+  <div class="card bg-info-subtle rounded-3 w-75 h-auto">
+    <header class="card-header bg-secondary text-white">
+      <div class="row">
+        <h2 class="h2 col text-white text-center" id="signup-title">
           Sign Up
         </h2>
       </div>
     </header>
-    <div class='card-body'>
-      <div class='row align-center p-1'>
-        <form class='form signup-form'>
-          <div class='form-group m-2'>
-            <label for='username-signup'>Username:</label>
+    <div class="card-body shadow-lg">
+      <div class="row align-center p-1">
+        <form class="form signup-form">
+          <div class="form-group h4 fw-bold m-3">
+            <label for="username-signup">Username:</label>
             <input
-              class='form-control'
-              type='text'
-              id='username-signup'
-              placeholder='Enter username'
+              class="form-control form-control-lg"
+              type="text"
+              id="username-signup"
+              placeholder="Enter username"
             />
           </div>
 
-          <div class='form-group m-2'>
-            <label for='password-signup'>Password:</label>
+          <div class="form-group h4 fw-bold m-3">
+            <label for="password-signup">Password:</label>
             <input
-              class='form-control'
-              type='password'
-              id='password-signup'
-              placeholder='Password'
+              class="form-control form-control-lg"
+              type="password"
+              id="password-signup"
+              placeholder="Password"
             />
           </div>
-
-          <div class='row justify-content-center align-items-center'>
-            <div class='form-group col-2 my-3 text-center'>
-              <button
-                class='btn btn-primary custom-btn'
-                type='submit'
-              >Submit</button>
-            </div>
+          <div
+            class="m-3 login d-flex flex-column flex-md-row justify-content-center align-items-center"
+          >
+            <button
+              class="button col-4 btn btn-primary btn-lg text-white fw-bold"
+              type="submit"
+            >Submit</button>
           </div>
         </form>
-
       </div>
     </div>
   </div>
 </main>
 
-<script src='/js/signup.js'></script>
+<script src="/js/signup.js"></script>

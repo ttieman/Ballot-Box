@@ -1,5 +1,5 @@
 <main class="container container-fluid d-flex justify-content-evenly mt-5">
-  <div class="card bg-info-subtle rounded-3 w-50 h-auto">
+  <div class="card bg-info-subtle rounded-3 w-75 h-auto">
     <header class="card-header bg-secondary text-white">
       <div class="row">
         <h2 class="h2 col-12 text-white" id="login-title">
@@ -31,21 +31,24 @@
             />
           </div>
 
-          <div class="login d-flex justify-content-center align-items-center">
-            <div class="form-group">
-              <button
-                class="button btn btn-primary btn-lg text-white fw-bold"
-                type="submit">Login</button>
-            </div>
+          <div
+            class="m-3 login d-flex flex-column flex-md-row justify-content-center align-items-center"
+          >
 
-            <div>
-              <button
-                class="button btn btn-primary btn-lg text-white fw-bold"
-                type="/signup"
-              ><a class="text-white" href="/account/signup">Sign-Up</a></button>
+            <button
+              class="col-3 col-md button btn btn-primary btn-lg text-white fw-bold"
+              type="submit"
+            >Login</button>
 
-            </div>
-            <div class="hand d-flex justify-content-right w-25">
+            <button
+              class="col-3 col-md button btn btn-primary btn-lg text-white fw-bold text-center"
+              type="/signup"
+            ><a
+                class="text-white justify-content-center"
+                href="/account/signup"
+              >Sign-Up</a></button>
+
+            <div class="col-3 col-12-md hand d-flex justify-content-right w-40">
               <img
                 src="/images/Ballot-Hand.png"
                 class="img-fluid"
