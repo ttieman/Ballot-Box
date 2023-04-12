@@ -43,7 +43,9 @@ a {
   font-weight: bold;
 }
 
-a:hover {background-color: #3e8e41}
+a:hover {
+  background-color: #3e8e41
+}
 
 a:active {
   background-color: #3e8e41;
@@ -55,7 +57,7 @@ nav {
   font-size: 1.7em !important;
   background-color: rgb(99, 163, 117);
   color: white !important;
-} 
+}
 
 /* .fa-twitter {
   background: #55ACEE;
@@ -78,9 +80,7 @@ body {
   color: rgb(25, 25, 35);
 }
 
-.home {
-
-}
+.home {}
 
 #logout {
   display: flex-end;
@@ -91,7 +91,7 @@ body {
 
 .logo {
   display: inline-flex;
-  justify-content:right;
+  justify-content: right;
   flex-direction: row;
   justify-content: space-evenly;
   margin-right: 4px;
@@ -99,23 +99,25 @@ body {
   padding: 2px;
 }
 
-  .button {
-    margin-top: 30px;
-    margin-left: 25px;
-    padding: 10px 15px;
-    font-size: 20px;
-    min-width: 7em;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color:rgb(99, 163, 117);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
+.button {
+  margin-top: 30px;
+  margin-left: 25px;
+  padding: 10px 15px;
+  font-size: 20px;
+  min-width: 7em;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: rgb(99, 163, 117);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
 
-.button:hover {background-color: #3e8e41}
+.button:hover {
+  background-color: #3e8e41
+}
 
 .button:active {
   background-color: #3e8e41;
@@ -153,7 +155,7 @@ body {
 }
 
 .hand {
-  margin: 30px 18px 10px 25px;  
+  margin: 30px 18px 10px 25px;
 }
 
 .feed-container {
@@ -189,4 +191,8 @@ body {
 
 #addPoll {
   display: block;
+}
+
+.fs-responsive {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
 }
