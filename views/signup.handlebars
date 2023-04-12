@@ -1,51 +1,52 @@
-<header class='constainer text-center'>
-  <div class='row bg-dark text-white'>
-    <h1
-      class='h1 --bs-body-color col-4 p-2 mx-5 mb-4 bg-info-subtle text-dark rounded-3 header'
-    >Ballot-Box</h1>
-  </div>
-</header>
-
-<main class='container container-fluid mt-5'>
-  <div class='card bg-info-subtle m-3 rounded-3'>
-    <header class='card-header bg-dark text-white'>
-      <div class='row'>
-        <h2 class='h2 col-9'>
+<main class="container container-fluid mt-5">
+  <div class="card bg-info-subtle m-3 rounded-3">
+    <header class="card-header bg-secondary text-white">
+      <div class="row">
+        <h2 class="h2 col-9 text-white align-items-center">
           Sign Up
         </h2>
       </div>
     </header>
-    <div class='card-body'>
-      <div class='row align-center p-1'>
-        <form class='form signup-form'>
-          <div class='form-group m-2'>
-            <label for='username-signup'>Username:</label>
+    <div class="card-body shadow-lg bg-body rounded">
+      <div class="row align-center p-1">
+        <form class="form signup-form">
+          <div class="form-group h4 fw-bold m-3">
+            <label for="username-signup">Username:</label>
             <input
-              class='form-control'
-              type='text'
-              id='username-signup'
-              placeholder='Enter username'
+              class="form-control"
+              type="text"
+              id="username-signup"
+              placeholder="Enter username"
             />
           </div>
 
-          <div class='form-group m-2'>
-            <label for='password-signup'>Password:</label>
+          <div class="form-group h4 fw-bold m-3">
+            <label for="password-signup">Password:</label>
             <input
-              class='form-control'
-              type='password'
-              id='password-signup'
-              placeholder='Password'
+              class="form-control"
+              type="password"
+              id="password-signup"
+              placeholder="Password"
             />
           </div>
-
-          <div class='row justify-content-center align-items-center'>
-            <div class='form-group col-2 my-3 text-center'>
+          <div class='container-fluid submit col d-flex justify-content-center'>
+            <div class="form-group">
+              <div class="hand d-lg-flex flex-row justify-content-evenly col-lg-7 col-sm-4 ">
+                <img
+                  src="/images/Pointing.png"
+                  class="img-fluid"
+                  alt="A person putting their ballot into a box."
+                />
+              </div>
+              <div>
               <button
-                class='btn btn-primary custom-btn'
-                type='submit'
+                class="button btn btn-primary btn-lg col-lg-4 col-md-6 text-white fw-bold"
+                type="submit"
               >Submit</button>
+              </div>
             </div>
           </div>
+
         </form>
 
       </div>
@@ -53,4 +54,4 @@
   </div>
 </main>
 
-<script src='/js/signup.js'></script>
+<script src="/js/signup.js"></script>

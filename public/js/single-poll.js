@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderPoll = (selections, votes, title) => {
     const card = document.createElement("div");
-    card.classList.add("card");
+    card.classList.add("card", "d-none");
 
     const cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultsBtn = document.getElementById("resultsBtn");
     resultsBtn.addEventListener("click", function () {
       canvasEl.classList.toggle("d-none");
+      card.classList.toggle("d-none");
     });
   };
 
