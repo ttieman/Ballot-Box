@@ -13,7 +13,7 @@ const deletePostHandler = async (event, button) => {
   if (response.ok) {
     document.location.replace(`/profile/${user_id}`);
   } else {
-    alert("Failed to delete");
+    console.error("Failed to delete");
   }
 };
 
@@ -58,7 +58,7 @@ document
     if (response.ok) {
       document.location.replace(`/profile/${user_id}`);
     } else {
-      alert("Error creating poll");
+      console.error("Error creating poll");
     }
   });
 

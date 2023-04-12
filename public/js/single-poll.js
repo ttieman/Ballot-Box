@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         location.reload(); // Refresh the page after submitting the vote
       } else if (response.status === 409) {
         const data = await response.json();
-        alert(data.message); // Show an alert with the duplicate vote message
+        console.error(data.message); // Show an alert with the duplicate vote message
         location.reload(); // Refresh the page after showing the alert
       } else {
         // Handle other errors from the server
