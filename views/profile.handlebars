@@ -2,27 +2,18 @@
   <div id="pollsContainer">
     {{! render all polls from the database on the main page }}
     {{#each polls}}
-      <div class="card bg-info-subtle mt-4 p-3 rounded-4 shadow-lg">
-        <div class="card-header --bs-body-color bg-secondary text-white">
-          <div class="row align-items-center">
-            <div class="h3 col-7 text-start"><a
-                class="text-white"
-                href="/poll/{{id}}"
-              >{{question}}</a>
-            </div>
-            <div class="col text-end">
-              <span class="me-2">Polled on: {{format_date date_created}}</span>
-              <button
-                class="deletePoll btn btn-danger"
-                type="button"
-                data-delete="{{id}}"
-              >
-                <i class="fas fa-trash-alt"></i>
-              </button>
-            </div>
+    <div class="card bg-info-subtle mt-4 p-3 rounded-4 shadow-lg">
+      <div class="card-header --bs-body-color bg-secondary text-white">
+        <div class="d-flex align-items-center flex-wrap">
+          <div class="h3 text-start flex-grow-1 mb-0"><a class="text-white" href="/poll/{{id}}">{{question}}</a>
           </div>
+          <span class="me-2 fs-responsive date-text flex-shrink-0">Polled on: {{format_date date_created}}</span>
+          <button class="deletePoll btn btn-danger flex-shrink-0" type="button" data-delete="{{id}}">
+            <i class="fas fa-trash-alt"></i>
+          </button>
         </div>
       </div>
+    </div>
     {{/each}}
   </div>
 
@@ -33,26 +24,13 @@
 
       <div class="input-group mb-3">
         <span class="input-group-text">Poll</span>
-        <input
-          id="question"
-          type="text"
-          class="form-control"
-          placeholder="Insert poll here"
-          aria-label="poll title"
-          required
-        />
+        <input id="question" type="text" class="form-control" placeholder="Insert poll here" aria-label="poll title"
+          required />
       </div>
       <div class="input-group mb-3 col-6">
         <span class="input-group-text">Number of Choices</span>
-        <input
-          id="num-choices"
-          type="number"
-          class="form-control"
-          min="2"
-          value="2"
-          aria-label="poll options"
-          required
-        />
+        <input id="num-choices" type="number" class="form-control" min="2" value="2" aria-label="poll options"
+          required />
       </div>
 
       <div id="choices-container">
@@ -62,11 +40,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="form-group my-3 text-center">
-          <button
-            class="btn btn-primary custom-btn col-6"
-            type="submit"
-            id="poll-submit"
-          >Create</button>
+          <button class="btn btn-primary custom-btn col-6" type="submit" id="poll-submit">Create</button>
         </div>
       </div>
 
