@@ -44,7 +44,7 @@
   <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-sm">
       <div class="container-fluid flex-column flex-md-row">
-        <div class="col-md-2">
+        <div class="col-md-1">
           <div class="d-flex align-items-center">
             <iframe
               src="https://giphy.com/embed/BqydFXNb6XQ6oKklTo"
@@ -59,21 +59,25 @@
             >Ballot-Box</a>
           </div>
         </div>
-        <div class="navbar" id="navbarNav">
-          <ul class="navbar-nav justify-content-end flex-column flex-md-row">
-            <li class="nav-item m-2">
-              <a class="home nav-link active" href="/">Home</a>
+        <div
+          class="navbar col-md-7 justify-content-end align-items-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav flex-column flex-md-row m-3">
+            <li class="nav-item m-1">
+              <a class="nav-link" href="/">Home</a>
             </li>
             {{#if loggedIn}}
-              <li class="nav-item m-2">
+              <li class="nav-item m-1">
                 <a class="nav-link" href="/profile/{{user_id}}">Profile</a>
               </li>
-              <li class="nav-item m-2">
+              <li class="nav-item m-1">
                 <a class="nav-link" href="/account/logout">Logout</a>
               </li>
+
             {{/if}}
             {{#unless loggedIn}}
-              <li class="nav-item m-2">
+              <li class="nav-item m-1">
                 <a class="nav-link" href="/account/login">Login</a>
               </li>
             {{/unless}}
