@@ -44,7 +44,7 @@
   <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-sm">
       <div class="container-fluid flex-column flex-md-row">
-        <div class="col-md-2">
+        <div class="col-md-1">
           <div class="d-flex align-items-center">
             <iframe
               src="https://giphy.com/embed/BqydFXNb6XQ6oKklTo"
@@ -54,27 +54,31 @@
               allowfullscreen
             ></iframe>
             <a
-              class="navbar-brand brand d-none d-md-block col-3 ml-auto"
+              class="navbar-brand brand d-none d-md-block col-3 ml-auto nava"
               href="#"
             >Ballot-Box</a>
           </div>
         </div>
-        <div class="navbar" id="navbarNav">
-          <ul class="navbar-nav justify-content-end flex-column flex-md-row">
-            <li class="nav-item m-2">
-              <a class="home nav-link active" href="/">Home</a>
+        <div
+          class="navbar col-md-7 justify-content-end align-items-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav flex-column flex-md-row m-3">
+            <li class="nav-item m-1">
+              <a class="nava nav-link maina" href="/">Home</a>
             </li>
             {{#if loggedIn}}
-              <li class="nav-item m-2">
-                <a class="nav-link" href="/profile/{{user_id}}">Profile</a>
+              <li class="nav-item m-1">
+                <a class="nava nav-link" href="/profile/{{user_id}}">Profile</a>
               </li>
-              <li class="nav-item m-2">
-                <a class="nav-link" href="/account/logout">Logout</a>
+              <li class="nav-item m-1">
+                <a class="nava nav-link" href="/account/logout">Logout</a>
               </li>
+
             {{/if}}
             {{#unless loggedIn}}
-              <li class="nav-item m-2">
-                <a class="nav-link" href="/account/login">Login</a>
+              <li class="nav-item m-1">
+                <a class="nava nav-link" href="/account/login">Login</a>
               </li>
             {{/unless}}
           </ul>

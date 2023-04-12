@@ -1,34 +1,35 @@
 <main class="container container-fluid mt-5 rounded-top-5">
-  <h2 class="h1 col-11 text-success fw-bold text-center">{{poll.question}}</h2>
-  <div class="h5 text-center col-10 text-end m-4 fw-bold">
+  <h2 class="h1 col text-success fw-bold text-center">{{poll.question}}</h2>
+  <div class="h5 text-center col text-end m-4 fw-bold">
     Posted by
-    {{poll.owner.username}}
+    {{poll.user.username}}
     on
     {{format_date poll.date_created}}
   </div>
 
-  <form id="pollForm" data-poll-id="{{poll.id}}">
-    <div class="row align-center mb-3">
-      <div class="col-md-12">
-        {{#each poll.pollquestions}}
-          <div class="form-check fs-5 text-start">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="choice"
-              id="choice{{@index}}"
-              value="{{this.id}}"
-            />
-            <label
-              class="form-check-label h4 letter-spacing: 5px fw-bold mb-3"
-              for="choice{{@index}}"
-            >
-              {{this.answerText}}
-            </label>
-          </div>
-        {{/each}}
+  <form
+    id="pollForm"
+    data-poll-id="{{poll.id}}"
+    class="d-flex flex-column justify-content-center align-items-center text-center"
+  >
+    {{#each poll.pollquestions}}
+      <div class="fs-5">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="choice"
+          id="choice{{@index}}"
+          value="{{this.id}}"
+        />
+        <label
+          class="form-check-label h4 letter-spacing: 5px fw-bold mb-3"
+          for="choice{{@index}}"
+        >
+          {{this.answerText}}
+        </label>
       </div>
-    </div>
+    {{/each}}
+
     <div class="form-group col-lg-7 col-sm-3">
       <button
         type="submit"
