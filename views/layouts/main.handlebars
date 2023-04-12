@@ -42,29 +42,25 @@
   </head>
 
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg">
-      <div class="container-fluid">
-        <iframe
-          src="https://giphy.com/embed/BqydFXNb6XQ6oKklTo"
-          frameBorder="0"
-          class="img-fluid"
-          allowFullScreen
-        ></iframe>
-        <a class="navbar-brand brand" href="#">Ballot-Box</a>
-
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-sm">
+      <div class="container-fluid flex-column flex-md-row">
+        <div class="col-md-2">
+          <div class="d-flex align-items-center">
+            <iframe
+              src="https://giphy.com/embed/BqydFXNb6XQ6oKklTo"
+              frameborder="0"
+              class="img-fluid col"
+              style="pointer-events: none;"
+              allowfullscreen
+            ></iframe>
+            <a
+              class="navbar-brand brand d-none d-md-block col-3 ml-auto"
+              href="#"
+            >Ballot-Box</a>
+          </div>
+        </div>
+        <div class="navbar" id="navbarNav">
+          <ul class="navbar-nav justify-content-end flex-column flex-md-row">
             <li class="nav-item m-2">
               <a class="home nav-link active" href="/">Home</a>
             </li>
