@@ -6,47 +6,44 @@
       </div>
       <div class="col-md-6 col-sm-12 fw-bold pe-3">
         <h2 class="title-desc">Join Ballot-Box and make your opinion count!</h2>
-        <p class="description text-muted">Discover Ballot-Box, your one-stop solution for 
-          real-time polling. Easily create custom polls, 
+        <p class="description text-muted">Discover Ballot-Box, your one-stop solution for
+          real-time polling. Easily create custom polls,
           share them globally, and gain instant insights.</p>
       </div>
     </div>
-
   </div>
   <div>
     <div class="container container-fluid d-flex rounded-top-5">
-      <div
-        id="allPollsContainer"
-        class="container text-center fw-bold justify-content-sm-center"
-      >
-        {{#each polls}}
-          <div class="card bg-info-subtle mt-4 p-3 rounded-4 shadow-lg">
-            <header class="card-header --bs-body-color bg-secondary text-white">
-              <div class="row">
-                <h2 class="h2 col-lg-8 col-sm-11 text-white text-start">
-                  <a class="text-white'" href="/poll/{{id}}">{{question}}</a>
-                </h2>
-                <div class="align-self-center col-3 text-end m-2">Posted by
-                  {{user.username}}
-                  on
-                  {{format_date date_created}}</div>
+      <div id="allPollsContainer" class="container text-center fw-bold justify-content-sm-center">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          {{#each polls}}
+          <div class="col">
+            <div class="card bg-light mt-4 p-3 rounded-4 shadow-lg">
+              <header class="card-header --bs-body-color bg-secondary text-white">
+                <div class="row">
+                  <h2 class="h2 col-12 text-white text-start mb-0">
+                    <a class="text-white" href="/poll/{{id}}">{{question}}</a>
+                  </h2>
+                </div>
+              </header>
+              <div class="bg-white px-3 pt-1 pb-2">
+                <div class="row">
+                  <div class="col-12 text-md-end fs-responsive">
+                    Posted by {{user.username}} on {{format_date date_created}}
+                  </div>
+                </div>
               </div>
-            </header>
-            <div class="card-body shadow-lg">
               <div class="row align-center mb-2">
                 <div class="col-md-3">
                   <picture>
                     <source srcset="..." type="image/svg+xml" />
-
                   </picture>
-                  {{#each pollquestions}}
-                    {{!-- <p class="fs-3 text-start ps-4">{{answerText}}</p> --}}
-                  {{/each}}
                 </div>
               </div>
             </div>
           </div>
-        {{/each}}
+          {{/each}}
+        </div>
       </div>
     </div>
   </div>
