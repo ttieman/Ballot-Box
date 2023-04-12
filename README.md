@@ -37,10 +37,10 @@ This can be used for any type of poll, so as to help reach a majority solution.
 
 ## Screenshot 🎯
 
-![Screenshot](images/Main.png)
-![Screenshot](images/Login.png)
-![Screenshot](images/Poll.png)
-![Screenshot](images/Create.png)
+![alt text](./public/images/Main-Page.png)
+![alt text](./public/images/Login.png)
+![alt text](./public/images/Poll.png)
+![alt text](./public/images/Create.png)
 
 ## Tests 🎯
 
